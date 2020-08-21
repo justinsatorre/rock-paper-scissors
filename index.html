@@ -3,109 +3,25 @@
 <head>
   <title>Rock, Paper, Scissors</title>
   <meta charset="UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <script>
-
-//function: computer move
-function computerPlay() {
-    let random = Math.floor(Math.random() * Math.floor(3));
-        switch(random){
-            case 0:
-            return 'rock';
-            break;
-            case 1:
-            return 'paper';
-            break;
-            case 2:
-            return 'scissors';
-        }
-    } 
-//function: evaluates who wins round
-    function playRound(playerSelection, computerSelection){
-        if (playerSelection === computerSelection){
-                return 'tie';
-        }
-        else if (playerSelection === "rock"){
-            if (computerSelection === "paper"){
-                return "loss";
-            }
-            else if (computerSelection === "scissors"){
-                return "win";
-            }
-        } 
-        else if (playerSelection === "paper"){
-            if (computerSelection === "scissors"){
-                return "loss";
-            }
-            else if (computerSelection === "rock"){
-                return "win";
-            }
-        }
-        else if (playerSelection === "scissors"){
-            if (computerSelection === "rock"){
-                return "loss";
-            }
-            else if (computerSelection === "paper"){
-                return "win";
-            }
-        }
-    }
-
-let computerScore = 0;
-let playerScore = 0;
-//function: evaluates who wins the game
-function game(){
-    let i=0;
-   for(i=0; i<5; i++)  {
-    let playerSelection = prompt ('Ready? Rock, paper, or scissors?').toLowerCase();
-    let computerSelection = computerPlay();
-    let roundResult = playRound(playerSelection, computerSelection);
-        if (roundResult === "tie"){
-            console.log("Let's go again!");
-        }
-        else if (roundResult === "loss"){
-            computerScore++;
-            console.log("One step closer to the tech revolution!");
-        }
-        else if (roundResult === "win"){
-            playerScore++;
-            console.log("*That one gif of the guy saying 'Wow!'*");
-        }
-    }
-    if (playerScore > computerScore) {
-        console.log("Wow OMG you're a winner, baby!");
-    }
-    else if (computerScore > playerScore) {
-        console.log("Wow OMG you're so bad at this!");
-    }
-    else {
-        console.log("Wow a tie, lame.");
-    }
-    
-}
-//Round result
-//function message () {
-    //let outcome = playRound(roundResult);
-
-   // if (roundResult = 'tie'){
-        //return outcome = "That's a tie!"
-        //}
-  //  else if (roundResult = 'loss'){
-        //return outcome = "Take the L."
-    //}
-    //else if (roundResult = 'win'){
-        //return outcome = "Ok, wow.";
-    //}
-    //else {
-        //return outcome = "IDK what's happening.";
-    //}
-//}    
-
-
-
-console.log(game())
-
-  </script>
+    <h1>Rock, paper, or scissors?</h1>
+    <div class = 'container'>
+        <div class='buttons'>
+            <button class = 'button' id = 'rock'>
+                <p>rock</p>
+            </button>
+            <button class = 'button' id = 'paper'>
+                <p>paper</p>
+            </button>
+            <button id = 'scissors' >
+                <p>scissors</p>
+            </button>
+        </div>
+        <div id = 'round'></div>
+        <div id = 'results'></div> 
+        </div> 
 </body>
+<script src="script.js"></script>
 </html>
